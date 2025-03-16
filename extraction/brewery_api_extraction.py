@@ -106,7 +106,7 @@ with DAG(
         total_pages_to_recreate = [i for i in range(total_pages,total_pages-(recreate_pages+1),-1)] if total_offseted_records != total_records else []
         
         # creates individual task groups for api_extraction, grouping N groups for each 30 extraction tasks
-        tasks_grouped_by = 30
+        tasks_grouped_by = constants.BREWERY_EXTRACTION_TASKS_GROUPED_BY
         total_task_groups = int(total_pages / tasks_grouped_by) 
         task_groups = []
         for i in range(1,total_task_groups+2):
