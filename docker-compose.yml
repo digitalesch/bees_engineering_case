@@ -17,10 +17,11 @@ services:
   airflow-webserver:
     image: apache/airflow:2.10.5
     container_name: airflow_webserver
+    user: "airflow"
     # restart: always
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow_db
       AIRFLOW__WEBSERVER__SECRET_KEY: teste1234
       DATA_PATH: /opt/airflow/data
     volumes:
@@ -36,12 +37,13 @@ services:
   airflow-scheduler:
     image: apache/airflow:2.10.5
     container_name: airflow_scheduler
+    user: "airflow"
     restart: always
     depends_on:
       - airflow-webserver
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow_db
       AIRFLOW__WEBSERVER__SECRET_KEY: teste1234
     volumes:
       - ./dags:/opt/airflow/dags
