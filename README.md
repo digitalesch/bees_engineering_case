@@ -72,7 +72,7 @@ Rematerializing the DAG structure like so:
 <img width="389" alt="image" src="https://github.com/user-attachments/assets/29ca08bd-4e00-490a-b80f-693be55a10fe" />
 
 The BranchOperator works checking if the task name associated with the page, for instance "branch_task_brewery_api_extract_offset_page_1" is present in the list variable "BREWERY_API_PAGINATION_PARTITION"
-<img width="727" alt="image" src="https://github.com/user-attachments/assets/2089a5cd-2c89-41d6-ae6c-d452d96da80d" />
+<img width="727" alt="image" src="https://github.com/user-attachments/assets/2089a5cd-2c89-41d6-ae6c-d452d96da80d" />\
 if not, it will execute the task associated to querying the API with the defined page and save the JSON file to the bronze layer defined in the constants file under BRONZE_LAYER_PATH (that expands to path "data/bronze"
 <img width="424" alt="image" src="https://github.com/user-attachments/assets/e6ebb4bf-9fe3-424e-8ee5-f2a69d2ac80d" />
 
