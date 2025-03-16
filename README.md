@@ -49,7 +49,7 @@ Extraction was thought out as following:
 2. Each block has specific pages being queried against the API
 3. Results are saved to the bronze layer
 
-There are 3 variables that control the extraction, created at startup, them being:
+There are 3 variables that control the extraction, created at startup, them being:\
 <img width="930" alt="image" src="https://github.com/user-attachments/assets/96798479-a7e2-4c73-93c4-47a1d1487a00" />
 
 | variable name        | description   |
@@ -81,16 +81,16 @@ After finishing up the DAG, the variables will look something like this:
 <img width="896" alt="image" src="https://github.com/user-attachments/assets/437a0b7f-90a2-40eb-b319-a3480aeda76a" />
 <img width="901" alt="image" src="https://github.com/user-attachments/assets/6e57e626-03aa-4320-8181-31dc06ed718b" />
 
-Let's say I'd like to only reprocess increments or a specific page, I wouldn't have to change any code, just the "BREWERY_API_PAGE_OFFSET" variable (for simulating incremental load of API data) or remove a partition from the "BREWERY_API_PAGINATION_PARTITIONS" variable (simulating a page reprocessing)
+Let's say I'd like to only reprocess increments or a specific page, I wouldn't have to change any code, just the "BREWERY_API_PAGE_OFFSET" variable (for simulating incremental load of API data) or remove a partition from the "BREWERY_API_PAGINATION_PARTITIONS" variable (simulating a page reprocessing)\
 
-For incremental example, let's say that the total API records was 8304 last run, and got 54 new records, totaling 8358, I'd have to materialize 2 new partitions.
-This scenario can be simulated by editing the "BREWERY_API_PAGE_OFFSET" variable and set its value to 8304
+For incremental example, let's say that the total API records was 8304 last run, and got 54 new records, totaling 8358, I'd have to materialize 2 new partitions.\
+This scenario can be simulated by editing the "BREWERY_API_PAGE_OFFSET" variable and set its value to 8304\
 <img width="738" alt="image" src="https://github.com/user-attachments/assets/79f8edc7-22f5-4a82-af31-90ceddb88634" />
 <img width="763" alt="image" src="https://github.com/user-attachments/assets/965c49d3-0864-42db-9a72-966497bb149a" />
 
-By triggering another DAG run, pages 166 and 167 will run this time (wheter they existed previously or not) and can be checked in the "extraction_block_5" portion of the DAG
+By triggering another DAG run, pages 166 and 167 will run this time (wheter they existed previously or not) and can be checked in the "extraction_block_5" portion of the DAG\
 <img width="964" alt="image" src="https://github.com/user-attachments/assets/df17455b-1196-41a3-a234-ee4dbf77641b" />
-all other extraction blocks are skipped, since they were already materialized in the previous run
+all other extraction blocks are skipped, since they were already materialized in the previous run\
 <img width="919" alt="image" src="https://github.com/user-attachments/assets/14e44042-eb72-4880-b493-a1632fb70a3a" />
 
 This can be checked by seeing the underneath files creation dates, with command
