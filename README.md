@@ -100,7 +100,7 @@ ls -alt
 <img width="815" alt="image" src="https://github.com/user-attachments/assets/73c51664-f3e7-4193-899b-38acef40ac33" />
 
 Once the DAG is done with the pipeline, the variables are set again
-<img width="768" alt="image" src="https://github.com/user-attachments/assets/05ac68d4-4151-41d1-b85a-52d8c3a1d096" />
+<img width="768" alt="image" src="https://github.com/user-attachments/assets/05ac68d4-4151-41d1-b85a-52d8c3a1d096" />\
 and the newly materialized partitions are added again
 <img width="992" alt="image" src="https://github.com/user-attachments/assets/60a04b89-500f-416c-841f-99f3b994a5b6" />
 <img width="1107" alt="image" src="https://github.com/user-attachments/assets/d25beee3-485d-4a1c-aa28-42bda7addce5" />
