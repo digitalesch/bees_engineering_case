@@ -28,12 +28,12 @@ with DAG(
     
     wait_for_extration_dependency = ExternalTaskSensor(
         task_id=f"wait_for_{EXTRACTION_DAG_ID}",
-        external_dag_id=EXTRACTION_DAG_ID,    # ✅ DAG ID of the external DAG
-        external_task_id="end",  # ✅ Task ID of the external task
-        mode="poke",                # "poke" or "reschedule" mode
-        timeout=600,                # Wait for 10 minutes max
-        poke_interval=30,           # Check every 30 seconds
-        execution_delta=timedelta(days=0)  # ✅ Ensures same execution date
+        external_dag_id=EXTRACTION_DAG_ID,
+        external_task_id="end",
+        mode="poke",
+        timeout=600,
+        poke_interval=30,
+        execution_delta=timedelta(days=0)
     )
 
     create_delta_table = DuckDBOperator(
