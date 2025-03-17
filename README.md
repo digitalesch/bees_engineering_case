@@ -113,3 +113,21 @@ The DAGs for both steps use the DuckDB to query data and save into delta tables.
 
 Monitoring is made through the Airflow DAGs and tasks statuses and could be forwarded (using for example ***"on_failure_callback"*** on tasks to send them to Slack / email or similar)
 
+- Silver / cleanup layer
+<img width="1437" alt="image" src="https://github.com/user-attachments/assets/e4311c3b-66cf-4d3a-a7e4-435cc24ceadf" />\
+DAG is a query, loading files into delta format, by using custom DuckDB operator
+<img width="711" alt="image" src="https://github.com/user-attachments/assets/9987c20a-edf3-4a49-b03a-81ceeeb3d750" />\
+and saves data to silver layer, partitioned by created "location" column
+<img width="398" alt="image" src="https://github.com/user-attachments/assets/77ac8556-64e5-4497-bd22-87b81d758b63" />\
+
+- Gold / aggregation layer\
+Uses the same DuckDB operator to query the delta table in memory, using SQL like syntax to aggregate the data\
+<img width="1358" alt="image" src="https://github.com/user-attachments/assets/9cbbc140-99da-45e4-9731-4529f43b1c72" />\
+and save it to gold layer\
+<img width="382" alt="image" src="https://github.com/user-attachments/assets/829fe3c4-4260-499b-96a7-ce6f4686f653" />
+
+
+
+
+
+
